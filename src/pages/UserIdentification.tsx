@@ -11,12 +11,14 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "../components/Button";
-
+// -----------------------------------------------------------------------
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
+// -----------------------------------------------------------------------
 export function UserIdentification() {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
@@ -37,10 +39,27 @@ export function UserIdentification() {
     setName(value);
   }
 
-  function handleSubmit() {
-    navigation.navigate("Confirmation");
+  async function handleSubmit() {
+    if (!name) {
+      return Alert.alert("Me diz como chamar você! 😅");
+    }
+    try {
+      await AsyncStorage.setItem("@plantmanager:user", name);
+    } catch {
+      Alert.alert("Não foi possivel salvar o seu nome. 😅");
+    }
+
+    navigation.navigate("Confirmation", {
+      title: "Prontinho",
+      subtitle:
+        "Agora vamos começar a cuidar das suas plantinhas com muito cuidado.",
+      buttonTitle: "Começar!",
+      icon: "smile",
+      nextScreen: "PlantSelect",
+    });
   }
 
+  //Return----------------------------------------------------------------
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
@@ -80,6 +99,7 @@ export function UserIdentification() {
   );
 }
 
+//Styles------------------------------------------------------------------
 const styles = StyleSheet.create({
   container: {
     flex: 1,
