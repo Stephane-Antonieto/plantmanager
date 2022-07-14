@@ -11,6 +11,7 @@ export function MyPlants() {
   // ------------------------------------------------------------------
   return (
     <View style={styles.container}>
+      {/* {console.log("oi")} */}
       <Header />
     </View>
   );

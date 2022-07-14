@@ -44,11 +44,12 @@ export function PlantSelect() {
       return setLoading(true);
     }
     if (page > 1) {
-      setPlants((oldValue) => [...oldValue, ...data]);
-      setFilteredPlants((oldValue) => [...oldValue, ...data]);
+      setPlants((oldValue) => [...[oldValue], ...data]);
+      setFilteredPlants((oldValue) => [...[oldValue], ...data]);
     } else {
       setPlants(data);
       setFilteredPlants(data);
+      console.log(filteredPlants);
     }
     setLoading(false);
     setLoadingMore(false);
