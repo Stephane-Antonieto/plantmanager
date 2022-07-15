@@ -30,7 +30,7 @@ export function Confirmation() {
 
   // ----------------------------------------------------------------------
   function handleMoveOn() {
-    navigation.navigate("PlantSelect");
+    navigation.navigate(nextScreen);
   }
 
   // ----------------------------------------------------------------------
