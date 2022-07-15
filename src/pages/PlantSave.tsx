@@ -18,7 +18,7 @@ import { PlantProps, savePlant } from "../libs/storage";
 
 import { Button } from "../components/Button";
 
-import waterdrop from "../../assets/waterdrop.png";
+import waterdrop from "../assets/waterdrop.png";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
@@ -65,7 +65,7 @@ export function PlantSave() {
           "Fique tranquilo que sempre vamos lembrar você de cuidar da sua plantinha com muito cuidado.",
         buttonTitle: "Muito Obrigado :D",
         icon: "hug",
-        nextScreen: "Welcome",
+        nextScreen: "MyPlants",
       });
     } catch {
       Alert.alert("Não foi possível salvar. 😢");

@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import { Header } from "../components/Header";
 
 // --------------------------------------------------------------------
+import waterdropImg from "../assets/waterdrop.png";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
@@ -11,8 +12,11 @@ export function MyPlants() {
   // ------------------------------------------------------------------
   return (
     <View style={styles.container}>
-      {/* {console.log("oi")} */}
       <Header />
+      <View style={styles.spotlight}>
+        <Image source={waterdropImg} style={styles.spotlightImg} />
+        <Text style={styles.spotlightText}>asdasd</Text>
+      </View>
     </View>
   );
 }
@@ -27,4 +31,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     backgroundColor: colors.background,
   },
+  spotlight: {},
+  spotlightImg: {},
+  spotlightText: {},
 });
